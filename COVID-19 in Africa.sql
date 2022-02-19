@@ -68,6 +68,15 @@ WHERE continent = 'Africa'
 GROUP BY Location
 ORDER BY Total_Death_Count DESC
 
+--Looking at the Death_percentage by countries
+
+SELECT Location, MAX(population) AS population, MAX(cast(Total_deaths AS INT)) AS Total_Death_Count
+, (MAX(cast(Total_deaths AS INT))/MAX(population)) * 100 AS Death_percentage
+FROM COVID_19_in_Africa..CovidDeaths
+WHERE continent = 'Africa'
+GROUP BY Location
+ORDER BY Total_Death_Count DESC
+
 
 -- Taking a look at the total number of cases and deaths in Africa
 
